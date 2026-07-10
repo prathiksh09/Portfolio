@@ -1,0 +1,38 @@
+@import "tailwindcss";
+.nav{
+  display: flex;
+  justify-content: center;
+  
+  background-color: gray;
+  height: 40px;
+  width: 1430px;
+  
+  gap: 20px;
+  padding: 20px;
+}
+
+.image{
+  background-image: url("https://c4.wallpaperflare.com/wallpaper/656/417/87/best-landscape-hd-background-ocean-best-landscape-wallpaper-preview.jpg");
+  background-size: cover;
+  height: 600px;
+  width: 1470px ;
+  margin-top: -10px;
+  
+}
+
+#snt{
+  padding: 180px;
+  display: flex;
+  gap: 500px;
+}
+
+#png{
+  color: rgb(255, 255, 255);
+  font-size: 40px;
+  font-weight: bold;
+}
+
+#btn{
+  height: 50px;
+  width:100px
+}
