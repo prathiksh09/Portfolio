@@ -8,7 +8,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-10 px-6">
+    <Footer className="bg-gray-900 text-white py-10 px-6">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-start gap-10">
 
         {/* Personal Info */}
@@ -82,7 +82,7 @@ const Footer = () => {
         </div>
       </div>
 
-    </footer>
+    </Footer>
   );
 };
 
