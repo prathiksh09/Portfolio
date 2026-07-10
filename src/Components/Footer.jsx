@@ -1,88 +1,116 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   FaInstagram,
   FaLinkedin,
   FaFacebook,
   FaTwitter,
+  FaGithub,
 } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <Footer className="bg-gray-900 text-white py-10 px-6">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-start gap-10">
+    <footer className="bg-gray-900 text-white py-10 px-6">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 gap-10 text-center sm:grid-cols-2 lg:grid-cols-3 lg:text-left">
 
         {/* Personal Info */}
-        <div className="text-center md:text-left">
-          <h1 className="text-2xl font-bold">PRATHIKSH</h1>
-          <p className="text-gray-300 mt-2">prathiksh@gmail.com</p>
-          <p className="text-gray-300">9741568081</p>
+        <div>
+          <h2 className="text-3xl font-bold">PRATHIKSH</h2>
 
-          <div className="flex justify-center md:justify-start gap-5 mt-5 text-2xl">
+          <p className="mt-4 text-gray-300 break-all">
+            prathiksh@gmail.com
+          </p>
+
+          <p className="mt-2 text-gray-300">
+            +91 97415 68031
+          </p>
+
+          <div className="mt-6 flex justify-center gap-5 text-2xl lg:justify-start">
             <a
               href="https://instagram.com"
               target="_blank"
-              rel="noreferrer"
-              className="hover:text-pink-500 transition"
+              rel="noopener noreferrer"
+              className="transition hover:text-pink-500"
             >
               <FaInstagram />
             </a>
 
             <a
-              href="https://www.linkedin.com/in/prathiksh-undefined-bbb0a1421?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+              href="https://www.linkedin.com/in/prathiksh-undefined-bbb0a1421"
               target="_blank"
-              rel="noreferrer"
-              className="hover:text-blue-500 transition"
+              rel="noopener noreferrer"
+              className="transition hover:text-blue-500"
             >
               <FaLinkedin />
             </a>
 
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noreferrer"
-              className="hover:text-blue-400 transition"
-            >
-              <FaFacebook />
-            </a>
-
+            
             <a
               href="https://twitter.com"
               target="_blank"
-              rel="noreferrer"
-              className="hover:text-sky-400 transition"
+              rel="noopener noreferrer"
+              className="transition hover:text-sky-400"
             >
               <FaTwitter />
+            </a>
+
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition hover:text-gray-400"
+            >
+              <FaGithub />
             </a>
           </div>
         </div>
 
         {/* Skills */}
-        <div className="text-center md:text-left">
-          <h1 className="text-2xl font-bold mb-3">LANGUAGES</h1>
-          <p className="text-gray-300">HTML</p>
-          <p className="text-gray-300">CSS</p>
-          <p className="text-gray-300">React</p>
+        <div>
+          <h2 className="mb-4 text-2xl font-bold">Technologies</h2>
+
+          <ul className="space-y-2 text-gray-300">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>React JS</li>
+            <li>Tailwind CSS</li>
+            <li>Node.js</li>
+          </ul>
         </div>
 
         {/* Navigation */}
-        <div className="text-center md:text-left">
-          <h1 className="text-2xl font-bold mb-3">ABOUT</h1>
+        <div>
+          <h2 className="mb-4 text-2xl font-bold">Quick Links</h2>
 
-          <a href="/" className="block hover:text-orange-400 transition">
-            Home
-          </a>
+          <div className="flex flex-col gap-3">
+            <Link
+              to="/"
+              className="transition hover:text-orange-400"
+            >
+              Home
+            </Link>
 
-          <a href="/About" className="block hover:text-orange-400 transition mt-2">
-            About Us
-          </a>
+            <Link
+              to="/about"
+              className="transition hover:text-orange-400"
+            >
+              About
+            </Link>
 
-          <a href="/Contact" className="block hover:text-orange-400 transition mt-2">
-            Contact Us
-          </a>
+            <Link
+              to="/contact"
+              className="transition hover:text-orange-400"
+            >
+              Contact
+            </Link>
+          </div>
         </div>
       </div>
 
-    </Footer>
+  
+     
+    </footer>
   );
 };
 

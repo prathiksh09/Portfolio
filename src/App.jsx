@@ -46,6 +46,24 @@ function App() {
         <Route path="/recipes" element={<Recipes />} />
         <Route path="/form" element={<Input />} />
         <Route path="/login" element={<Login />} />
+
+        <Route
+          path="*"
+          element={
+            <div className="min-h-screen flex items-center justify-center px-4">
+              <div className="text-center">
+                <h1 className="text-4xl sm:text-5xl font-bold">404</h1>
+                <p className="mt-3 text-lg">Page not found</p>
+                <a
+                  href="/"
+                  className="inline-block mt-5 px-5 py-2 bg-blue-600 text-white rounded-lg"
+                >
+                  Go Home
+                </a>
+              </div>
+            </div>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

@@ -1,61 +1,98 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
-  return (
-    <nav className="fixed top-4 left-0 w-full px-4 z-50">
-      <div className="max-w-6xl mx-auto bg-white shadow-lg rounded-3xl border border-gray-200 px-5 py-4 flex justify-between items-center">
-        <h1 className="text-xl md:text-2xl font-bold text-blue-600">
-          PRATHIKSH
-        </h1>
+  const navLinkClass = ({ isActive }) =>
+    `transition duration-300 ${
+      isActive
+        ? "font-semibold text-blue-600"
+        : "text-gray-700 hover:text-blue-600"
+    }`;
 
-        <div className="hidden md:flex gap-10 font-medium">
-          <Link to="/" className="hover:text-blue-600">
+  return (
+    <nav className="fixed left-0 top-4 z-50 w-full px-3 sm:px-4">
+      <div className="mx-auto flex max-w-6xl items-center justify-between rounded-3xl border border-gray-200 bg-white px-5 py-4 shadow-lg sm:px-7">
+        <NavLink
+          to="/"
+          onClick={() => setOpen(false)}
+          className="text-xl font-bold text-blue-600 sm:text-2xl"
+        >
+          PRATHIKSH
+        </NavLink>
+
+        {/* Desktop navigation */}
+        <div className="hidden items-center gap-8 font-medium md:flex lg:gap-10">
+          <NavLink to="/" className={navLinkClass}>
             Home
-          </Link>
-          <Link to="/about" className="hover:text-blue-600">
+          </NavLink>
+
+          <NavLink to="/about" className={navLinkClass}>
             About
-          </Link>
-          <Link to="/contact" className="hover:text-blue-600">
+          </NavLink>
+
+          <NavLink to="/contact" className={navLinkClass}>
             Contact
-          </Link>
+          </NavLink>
         </div>
 
+        {/* Mobile menu button */}
         <button
-          className="md:hidden text-3xl"
-          onClick={() => setOpen(!open)}
+          type="button"
+          onClick={() => setOpen((previousOpen) => !previousOpen)}
+          className="flex h-10 w-10 items-center justify-center rounded-lg text-3xl text-gray-800 transition hover:bg-gray-100 md:hidden"
+          aria-label={open ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={open}
         >
           {open ? "×" : "☰"}
         </button>
       </div>
 
+      {/* Mobile navigation */}
       {open && (
-        <div className="md:hidden max-w-6xl mx-auto mt-2 bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
-          <Link
+        <div className="mx-auto mt-2 max-w-6xl overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-lg md:hidden">
+          <NavLink
             to="/"
             onClick={() => setOpen(false)}
-            className="block px-6 py-3 hover:bg-gray-100"
+            className={({ isActive }) =>
+              `block px-6 py-4 transition ${
+                isActive
+                  ? "bg-blue-50 font-semibold text-blue-600"
+                  : "text-gray-700 hover:bg-gray-100"
+              }`
+            }
           >
             Home
-          </Link>
+          </NavLink>
 
-          <Link
+          <NavLink
             to="/about"
             onClick={() => setOpen(false)}
-            className="block px-6 py-3 hover:bg-gray-100"
+            className={({ isActive }) =>
+              `block border-t border-gray-100 px-6 py-4 transition ${
+                isActive
+                  ? "bg-blue-50 font-semibold text-blue-600"
+                  : "text-gray-700 hover:bg-gray-100"
+              }`
+            }
           >
             About
-          </Link>
+          </NavLink>
 
-          <Link
+          <NavLink
             to="/contact"
             onClick={() => setOpen(false)}
-            className="block px-6 py-3 hover:bg-gray-100"
+            className={({ isActive }) =>
+              `block border-t border-gray-100 px-6 py-4 transition ${
+                isActive
+                  ? "bg-blue-50 font-semibold text-blue-600"
+                  : "text-gray-700 hover:bg-gray-100"
+              }`
+            }
           >
             Contact
-          </Link>
+          </NavLink>
         </div>
       )}
     </nav>

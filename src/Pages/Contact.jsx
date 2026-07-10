@@ -12,95 +12,187 @@ const Contact = () => {
   });
 
   const handleChange = (e) => {
-    setData({ ...data, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+
+    setData((previousData) => ({
+      ...previousData,
+      [name]: value,
+    }));
   };
 
-  const handleDoc = () => {
-    console.log(data);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    console.log("Contact form data:", data);
+
+    setData({
+      name: "",
+      email: "",
+      website: "",
+      message: "",
+    });
   };
 
   return (
-    <div className="bg-gray-50 min-h-screen">
+    <div className="min-h-screen bg-gray-50">
       <Navbar />
 
-      <div className="pt-30 px-6 md:px-16 lg:px-24 pb-16">
-        <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 flex flex-col lg:flex-row gap-12">
-          <div className="w-full lg:w-1/">
-            <h1 className="text-4xl md:text-6xl font-bold mb-5">
-              Contact 
+      <main className="px-4 pb-16 pt-24 sm:px-6 sm:pt-28 md:px-10 lg:px-20 lg:pt-32">
+        <div className="mx-auto flex max-w-7xl flex-col gap-10 rounded-3xl bg-white p-5 shadow-2xl sm:p-8 md:p-12 lg:flex-row lg:gap-16">
+          {/* Contact information */}
+          <section className="w-full lg:w-1/2">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-orange-500">
+              Get in touch
+            </p>
+
+            <h1 className="mt-2 text-4xl font-bold text-gray-900 sm:text-5xl md:text-6xl">
+              Contact Me
             </h1>
 
-            <p className="text-gray-600 text-lg mb-10 leading-8">
-              We are committed to processing your information in order to contact<br></br>
+            <p className="mt-5 max-w-xl text-base leading-7 text-gray-600 sm:text-lg sm:leading-8">
+              I am committed to processing your information so I can contact
               you and discuss your project.
             </p>
 
-            <div className="space-y-6 text-lg">
-              <div className="flex items-center gap-4">
-                <MdEmail className="text-3xl text-orange-500" />
-                <p>prathiksh@gmail.com</p>
+            <div className="mt-10 space-y-6">
+              <a
+                href="mailto:prathiksh@gmail.com"
+                className="flex items-center gap-4 rounded-xl p-3 transition hover:bg-gray-100"
+              >
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-orange-100">
+                  <MdEmail className="text-2xl text-orange-500" />
+                </div>
+
+                <div className="min-w-0">
+                  <p className="text-sm text-gray-500">Email</p>
+                  <p className="break-all font-medium text-gray-800 sm:break-normal">
+                    prathiksh@gmail.com
+                  </p>
+                </div>
+              </a>
+
+              <div className="flex items-center gap-4 rounded-xl p-3">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-orange-100">
+                  <MdLocationOn className="text-2xl text-orange-500" />
+                </div>
+
+                <div>
+                  <p className="text-sm text-gray-500">Location</p>
+                  <p className="font-medium text-gray-800">Dharmasthala</p>
+                </div>
               </div>
 
-              <div className="flex items-center gap-4">
-                <MdLocationOn className="text-3xl text-orange-500" />
-                <p>Dharmasthala</p>
-              </div>
+              <a
+                href="tel:+919741568031"
+                className="flex items-center gap-4 rounded-xl p-3 transition hover:bg-gray-100"
+              >
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-orange-100">
+                  <MdPhone className="text-2xl text-orange-500" />
+                </div>
 
-              <div className="flex items-center gap-4">
-                <MdPhone className="text-3xl text-orange-500" />
-                <p>9741568031</p>
-              </div>
+                <div>
+                  <p className="text-sm text-gray-500">Phone</p>
+                  <p className="font-medium text-gray-800">+91 97415 68031</p>
+                </div>
+              </a>
             </div>
-          </div>
+          </section>
 
-          <div className="w-full lg:w-1/2">
-            <div className="flex flex-col gap-5">
-              <input
-                type="text"
-                placeholder="Name"
-                name="name"
-                value={data.name}
-                onChange={handleChange}
-                className="w-full border border-gray-300 p-4 rounded-xl outline-none focus:border-orange-500"
-              />
+          {/* Contact form */}
+          <section className="w-full lg:w-1/2">
+            <form
+              onSubmit={handleSubmit}
+              className="flex flex-col gap-5"
+            >
+              <div>
+                <label
+                  htmlFor="name"
+                  className="mb-2 block text-sm font-semibold text-gray-700"
+                >
+                  Name
+                </label>
 
-              <input
-                type="email"
-                placeholder="Email"
-                name="email"
-                value={data.email}
-                onChange={handleChange}
-                className="w-full border border-gray-300 p-4 rounded-xl outline-none focus:border-orange-500"
-              />
+                <input
+                  id="name"
+                  type="text"
+                  name="name"
+                  placeholder="Enter your name"
+                  value={data.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full rounded-xl border border-gray-300 p-4 outline-none transition focus:border-orange-500 focus:ring-2 focus:ring-orange-200"
+                />
+              </div>
 
-              <input
-                type="text"
-                placeholder="Website"
-                name="website"
-                value={data.website}
-                onChange={handleChange}
-                className="w-full border border-gray-300 p-4 rounded-xl outline-none focus:border-orange-500"
-              />
+              <div>
+                <label
+                  htmlFor="email"
+                  className="mb-2 block text-sm font-semibold text-gray-700"
+                >
+                  Email
+                </label>
 
-              <textarea
-                placeholder="Message"
-                name="message"
-                value={data.message}
-                onChange={handleChange}
-                rows="6"
-                className="w-full border border-gray-300 p-4 rounded-xl outline-none focus:border-orange-500 resize-none"
-              ></textarea>
+                <input
+                  id="email"
+                  type="email"
+                  name="email"
+                  placeholder="Enter your email"
+                  value={data.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full rounded-xl border border-gray-300 p-4 outline-none transition focus:border-orange-500 focus:ring-2 focus:ring-orange-200"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="website"
+                  className="mb-2 block text-sm font-semibold text-gray-700"
+                >
+                  Website
+                </label>
+
+                <input
+                  id="website"
+                  type="url"
+                  name="website"
+                  placeholder="https://yourwebsite.com"
+                  value={data.website}
+                  onChange={handleChange}
+                  className="w-full rounded-xl border border-gray-300 p-4 outline-none transition focus:border-orange-500 focus:ring-2 focus:ring-orange-200"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="message"
+                  className="mb-2 block text-sm font-semibold text-gray-700"
+                >
+                  Message
+                </label>
+
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Write your message"
+                  value={data.message}
+                  onChange={handleChange}
+                  rows={6}
+                  required
+                  className="w-full resize-none rounded-xl border border-gray-300 p-4 outline-none transition focus:border-orange-500 focus:ring-2 focus:ring-orange-200"
+                />
+              </div>
 
               <button
-                onClick={handleDoc}
-                className="w-full bg-orange-500 text-white p-4 rounded-xl hover:bg-blue-600 hover:scale-[1.02] transition-all duration-300"
+                type="submit"
+                className="w-full rounded-xl bg-orange-500 p-4 font-semibold text-white transition-all duration-300 hover:scale-[1.02] hover:bg-blue-600"
               >
                 Submit
               </button>
-            </div>
-          </div>
+            </form>
+          </section>
         </div>
-      </div>
+      </main>
 
       <Footer />
     </div>

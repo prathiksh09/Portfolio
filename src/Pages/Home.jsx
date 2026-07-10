@@ -3,104 +3,123 @@ import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 
 const Home = () => {
+  const skills = [
+    {
+      name: "HTML",
+      image:
+        "https://www.oxfordwebstudio.com/user/pages/06.da-li-znate/sta-je-html/sta-je-html.jpg",
+      description:
+        "HTML stands for HyperText Markup Language. It is used to create the structure and content of a webpage using elements and tags.",
+    },
+    {
+      name: "CSS",
+      image:
+        "https://www.oxfordwebstudio.com/user/pages/06.da-li-znate/sta-je-css/sta-je-css.png",
+      description:
+        "CSS stands for Cascading Style Sheets. It controls colors, fonts, spacing, layouts, animations, and responsive design.",
+    },
+    {
+      name: "JavaScript",
+      image:
+        "https://img.favpng.com/2/17/21/javascript-web-development-logo-png-favpng-ceaaGXGxjjeFv1hfcf44VMHjC.jpg",
+      description:
+        "JavaScript is a programming language used to make websites interactive and dynamic. It works together with HTML and CSS.",
+    },
+    {
+      name: "React",
+      image:
+        "https://www.jotform.com/blog/wp-content/uploads/2017/01/react-js.png",
+      description:
+        "React is a frontend JavaScript library used to build reusable components and dynamic single-page applications.",
+    },
+  ];
+
   return (
-    <div>
+    <div className="min-h-screen bg-gray-700">
       <Navbar />
 
-      <div className="flex flex-col md:flex-row bg-gray-700 w-full min-h-[600px] p-5 md:p-[30px]">
-        <div className="w-full md:w-1/2 p-4 md:p-[10px] text-white flex flex-col justify-center">
-          <h4 className="text-xl md:text-2xl pt-10 md:pt-[100px]">
-            New Arrivals 2026
-          </h4>
+      {/* Hero section */}
+      <section className="min-h-[650px] bg-gray-700 px-5 py-16 sm:px-8 md:px-12 lg:px-20">
+        <div className="mx-auto flex max-w-7xl flex-col items-center gap-10 lg:flex-row lg:gap-16">
+          {/* Hero content */}
+          <div className="w-full text-center text-white lg:w-1/2 lg:text-left">
+            <p className="mb-3 text-lg font-medium text-gray-300 sm:text-xl">
+              New Arrivals 2026
+            </p>
 
-          <h1 className="text-4xl md:text-6xl font-bold">MERN FULLSTACK</h1>
-          <h1 className="text-4xl md:text-6xl font-bold">DEVELOPMENT</h1>
+            <h1 className="text-4xl font-bold leading-tight sm:text-5xl md:text-6xl">
+              MERN FULLSTACK
+            </h1>
 
-          <button className="border h-[40px] w-[160px] mt-6 hover:bg-white hover:text-gray-700 transition">
-            Feedback collection
-          </button>
+            <h2 className="mt-2 text-4xl font-bold leading-tight sm:text-5xl md:text-6xl">
+              DEVELOPMENT
+            </h2>
+
+            <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-gray-300 sm:text-base lg:mx-0">
+              Building modern, responsive, and user-friendly web applications
+              using MongoDB, Express.js, React, and Node.js.
+            </p>
+
+            <button
+              type="button"
+              className="mt-7 rounded-lg border border-white px-6 py-3 text-sm font-semibold transition duration-300 hover:bg-white hover:text-gray-800"
+            >
+              Feedback Collection
+            </button>
+          </div>
+
+          {/* Hero image */}
+          <div className="flex w-full justify-center lg:w-1/2">
+            <img
+              src="https://img.magnific.com/free-photo/rear-view-programmer-working-all-night-long_1098-18697.jpg?semt=ais_hybrid&w=740&q=80"
+              alt="Programmer working on a computer"
+              className="h-[280px] w-full max-w-xl rounded-3xl border border-gray-500 object-cover shadow-2xl sm:h-[380px] lg:h-[450px]"
+            />
+          </div>
         </div>
+      </section>
 
-        <div className="w-full md:w-1/2 p-4 md:p-[3%] flex justify-center items-center">
-          <img
-            className="border rounded-2xl w-full max-w-[500px]"
-            src="https://img.magnific.com/free-photo/rear-view-programmer-working-all-night-long_1098-18697.jpg?semt=ais_hybrid&w=740&q=80"
-            alt="programmer"
-          />
-        </div>
-      </div>
+      {/* Skills section */}
+      <section className="bg-gray-500 px-5 py-14 sm:px-8 md:px-12 lg:px-20">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-10 text-center">
+            <h2 className="text-3xl font-bold text-white sm:text-4xl">
+              My Technical Skills
+            </h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-center justify-center bg-gray-500 p-6">
-        <div className="transition-transform duration-300 hover:scale-105 flex justify-center">
-          <img
-            src="https://www.oxfordwebstudio.com/user/pages/06.da-li-znate/sta-je-html/sta-je-html.jpg"
-            alt="HTML"
-            className="border-2 h-64 w-64 rounded-2xl object-cover"
-          />
-        </div>
+            <p className="mt-3 text-sm text-gray-200 sm:text-base">
+              Technologies used to build modern web applications
+            </p>
+          </div>
 
-        <div className="transition-transform duration-300 hover:scale-105 flex justify-center">
-          <img
-            src="https://www.oxfordwebstudio.com/user/pages/06.da-li-znate/sta-je-css/sta-je-css.png"
-            alt="CSS"
-            className="border-2 h-64 w-64 rounded-2xl object-cover"
-          />
-        </div>
+          <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 xl:grid-cols-4">
+            {skills.map((skill) => (
+              <article
+                key={skill.name}
+                className="overflow-hidden rounded-2xl border border-gray-300 bg-gray-600 shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl"
+              >
+                <div className="overflow-hidden bg-white">
+                  <img
+                    src={skill.image}
+                    alt={`${skill.name} logo`}
+                    className="h-56 w-full object-cover transition duration-500 hover:scale-105 sm:h-60"
+                  />
+                </div>
 
-        <div className="transition-transform duration-300 hover:scale-105 flex justify-center">
-          <img
-            src="https://img.favpng.com/2/17/21/javascript-web-development-logo-png-favpng-ceaaGXGxjjeFv1hfcf44VMHjC.jpg"
-            alt="JavaScript"
-            className="border-2 h-64 w-64 rounded-2xl object-cover"
-          />
-        </div>
+                <div className="p-5">
+                  <h3 className="mb-3 text-2xl font-bold text-white">
+                    {skill.name}
+                  </h3>
 
-        <div className="transition-transform duration-300 hover:scale-105 flex justify-center">
-          <img
-            src="https://www.jotform.com/blog/wp-content/uploads/2017/01/react-js.png"
-            alt="React"
-            className="border-2 h-64 w-64 rounded-2xl object-cover"
-          />
+                  <p className="text-sm leading-7 text-gray-100">
+                    {skill.description}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
-      </div>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 bg-gray-600 p-6">
-        <div className="p-4 border border-white rounded-2xl">
-          <p className="text-amber-50">
-            HTML stands for HyperText Markup Language. HyperText means text that
-            contains links to other web pages. Markup Language means a language
-            that uses tags to describe the structure of content. HTML is not a
-            programming language because it does not perform calculations or
-            make decisions. Instead, it is a markup language that defines the
-            structure and content of a webpage.
-          </p>
-        </div>
-
-        <div className="p-4 border border-white rounded-2xl">
-          <p className="text-amber-50">
-            CSS (Cascading Style Sheets) is a style sheet language used to
-            control the appearance and layout of web pages. It works together
-            with HTML by adding colors, fonts, spacing, animations, and
-            responsive designs to web content.
-          </p>
-        </div>
-
-        <div className="p-4 border border-white rounded-2xl">
-          <p className="text-amber-50">
-            JavaScript (JS) is a high-level, interpreted programming language
-            used to make web pages interactive and dynamic. It works together
-            with HTML and CSS to create modern websites and web applications.
-          </p>
-        </div>
-
-        <div className="p-4 border border-white rounded-2xl">
-          <p className="text-amber-50">
-            React is a free and open-source frontend JavaScript library used for
-            building dynamic and interactive user interfaces. It is useful for
-            creating single-page applications efficiently.
-          </p>
-        </div>
-      </div>
+      </section>
 
       <Footer />
     </div>
