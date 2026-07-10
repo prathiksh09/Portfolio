@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../Components/Footer";
 
-const Main = () => {
+const Home = () => {
   return (
     <div>
       <Navbar />
@@ -13,12 +13,8 @@ const Main = () => {
             New Arrivals 2026
           </h4>
 
-          <h1 className="text-4xl md:text-6xl font-bold">
-            MERN FULLSTACK
-          </h1>
-          <h1 className="text-4xl md:text-6xl font-bold">
-            DEVELOPMENT
-          </h1>
+          <h1 className="text-4xl md:text-6xl font-bold">MERN FULLSTACK</h1>
+          <h1 className="text-4xl md:text-6xl font-bold">DEVELOPMENT</h1>
 
           <button className="border h-[40px] w-[160px] mt-6 hover:bg-white hover:text-gray-700 transition">
             Feedback collection
@@ -111,4 +107,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default Home;
