@@ -12,7 +12,7 @@ const Navbar = () => {
     }`;
 
   return (
-    <nav className="fixed left-0 top-4 z-50 w-full px-3 sm:px-4">
+    <nav className="fixed left-0 top-0 z-50 w-full bg-gray-200 px-3 py-4 sm:px-4">
       <div className="mx-auto flex max-w-6xl items-center justify-between rounded-3xl border border-gray-200 bg-white px-5 py-4 shadow-lg sm:px-7">
         <NavLink
           to="/"

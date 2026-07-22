@@ -35,11 +35,11 @@ const Home = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-700">
+    <div className="min-h-screen bg-gray-700 ">
       <Navbar />
 
       {/* Hero section */}
-      <section className="min-h-[650px] bg-gray-700 px-5 py-16 sm:px-8 md:px-12 lg:px-20">
+      <section className="min-h-[650px] bg-gray-700 px-5 py-16 sm:px-8 md:px-12 lg:px-20 ">
         <div className="mx-auto flex max-w-7xl flex-col items-center gap-10 lg:flex-row lg:gap-16">
           {/* Hero content */}
           <div className="w-full text-center text-white lg:w-1/2 lg:text-left">
@@ -69,7 +69,7 @@ const Home = () => {
           </div>
 
           {/* Hero image */}
-          <div className="flex w-full justify-center lg:w-1/2">
+          <div className="flex w-full justify-center lg:w-1/2 pt-15">
             <img
               src="https://img.magnific.com/free-photo/rear-view-programmer-working-all-night-long_1098-18697.jpg?semt=ais_hybrid&w=740&q=80"
               alt="Programmer working on a computer"

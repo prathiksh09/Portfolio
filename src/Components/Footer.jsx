@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 import {
   FaInstagram,
   FaLinkedin,
-  FaFacebook,
   FaTwitter,
   FaGithub,
 } from "react-icons/fa";
+
+import CodeLabLogo from "../assets/logo.png";
 
 const Footer = () => {
   return (
@@ -25,12 +26,16 @@ const Footer = () => {
             +91 97415 68031
           </p>
 
-          <div className="mt-6 flex justify-center gap-5 text-2xl lg:justify-start">
+          
+
+          {/* Social Icons */}
+          <div className="mt-6 flex justify-center gap-5 text-2xl lg:justify-start items-center">
+
             <a
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="transition hover:text-pink-500"
+              className="transition hover:text-pink-500 hover:scale-110"
             >
               <FaInstagram />
             </a>
@@ -39,17 +44,16 @@ const Footer = () => {
               href="https://www.linkedin.com/in/prathiksh-undefined-bbb0a1421"
               target="_blank"
               rel="noopener noreferrer"
-              className="transition hover:text-blue-500"
+              className="transition hover:text-blue-500 hover:scale-110"
             >
               <FaLinkedin />
             </a>
 
-            
             <a
               href="https://twitter.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="transition hover:text-sky-400"
+              className="transition hover:text-sky-400 hover:scale-110"
             >
               <FaTwitter />
             </a>
@@ -58,14 +62,29 @@ const Footer = () => {
               href="https://github.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="transition hover:text-gray-400"
+              className="transition hover:text-gray-400 hover:scale-110"
             >
               <FaGithub />
             </a>
+
+            {/* CodeLab Logo */}
+            <a
+              href="https://www.codelabsystems.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition hover:scale-110"
+            >
+              <img
+                src={CodeLabLogo}
+                alt="CodeLab System"
+                className="w-7 h-7 object-contain bg-white rounded-md p-1"
+              />
+            </a>
+
           </div>
         </div>
 
-        {/* Skills */}
+        {/* Technologies */}
         <div>
           <h2 className="mb-4 text-2xl font-bold">Technologies</h2>
 
@@ -79,7 +98,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Navigation */}
+        {/* Quick Links */}
         <div>
           <h2 className="mb-4 text-2xl font-bold">Quick Links</h2>
 
@@ -106,10 +125,13 @@ const Footer = () => {
             </Link>
           </div>
         </div>
+
       </div>
 
-  
-     
+      {/* Bottom Copyright */}
+      <div className="border-t border-gray-700 mt-10 pt-6 text-center text-gray-400 text-sm">
+        © {new Date().getFullYear()} PRATHIKSH. All Rights Reserved.
+      </div>
     </footer>
   );
 };
