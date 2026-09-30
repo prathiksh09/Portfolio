@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
+import { myContext } from "../context/CreateContex";
 
 const Home = () => {
+  // const {name , email, address} = useContext(myContext);
+  // console.log (name)
   const skills = [
     {
       name: "HTML",
@@ -38,14 +41,21 @@ const Home = () => {
     <div className="min-h-screen bg-gray-700 ">
       <Navbar />
 
+     
+
       {/* Hero section */}
       <section className="min-h-[650px] bg-gray-700 px-5 py-16 sm:px-8 md:px-12 lg:px-20 ">
         <div className="mx-auto flex max-w-7xl flex-col items-center gap-10 lg:flex-row lg:gap-16">
           {/* Hero content */}
           <div className="w-full text-center text-white lg:w-1/2 lg:text-left">
+
+            {/* Destrucring */}
+           {/* <p className="text-2xl"> {name } {email} {address}</p>  */}
+
             <p className="mb-3 text-lg font-medium text-gray-300 sm:text-xl">
               New Arrivals 2026
             </p>
+            
 
             <h1 className="text-4xl font-bold leading-tight sm:text-5xl md:text-6xl">
               MERN FULLSTACK
