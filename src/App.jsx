@@ -26,10 +26,10 @@ function App() {
           element={
             <About
               name="Prathiksh"
-              email="prathiksh123@gmail.com"
+              email="prathiksh981@gmail.com"
               phone="9741568031"
               address="Dharmasthala"
-              course="Computer Science"
+              course="B.Voc (Software and Application Development)"
               year="2026"
             />
           }
